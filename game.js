@@ -3,14 +3,26 @@ setTimeout(seth1, 2000);
 //猜數字
 const targetNumber = parseInt(Math.random() * 100);
 console.log(targetNumber);
-displayTextOnConsole("歡迎來到猜數字遊戲");
+displayTextOnConsole("目標數字介於0~100之間，你需要根據提示，猜到正確的數字來贏得遊戲！");
+displayTextOnConsole("Tips：可點擊 送出按鈕 或 鍵盤Enter 來提交答案喔！");
 displayTextOnConsole("請輸入一個數字");
 
-//監聽種類
+const inputObject = document.getElementById("input")
+//取得按鈕
 let gameButton = document.querySelector(".testOutput")
+
+//監聽Enter
+inputObject.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // 防止預設的 Enter 鍵行為（例如提交表單）
+        gameButton.click(); // 模擬按下按鈕
+    }
+});
+
+//監聽點擊
+gameButton.addEventListener("click", onSubmmit);
 //傳入變數的漂亮寫法
 // consolebutton.addEventListener("click", () => displayTextOnConsole("test"));
-gameButton.addEventListener("click", onSubmmit);
 
 function isScrolledToBottom() {
     var console = document.querySelector(".console");
@@ -20,7 +32,7 @@ function isScrolledToBottom() {
 
 function seth1() {
     const head1 = document.querySelector("h1");
-    head1.textContent = "Number Guessing";
+    head1.textContent = "歡迎來到猜數字遊戲（Number Guessing）";
 }
 
 function displayTextOnConsole(textToDisplay) {
@@ -32,8 +44,8 @@ function displayTextOnConsole(textToDisplay) {
     targetConsole.scrollTop = targetConsole.scrollHeight - targetConsole.clientHeight;
 }
 
-function onSubmmit(text) {
-    const inputObject = document.getElementById("input")
+function onSubmmit() {
+
     console.log(inputObject);
     console.log(inputObject.value);
     console.log("====");
@@ -46,6 +58,8 @@ function onSubmmit(text) {
         while (targetConsole.firstChild) {
             targetConsole.removeChild(targetConsole.firstChild);
         }
+        displayTextOnConsole("目標數字介於0~100之間，你需要根據提示，猜到正確的數字來贏得遊戲！");
+        displayTextOnConsole("Tips：可點擊 送出按鈕 或 鍵盤Enter 來提交答案喔！");
         displayTextOnConsole("輸入錯誤，請輸入數字");
         inputObject.value = "";
     } else {
