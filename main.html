@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing</title>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        h1 {
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            min-height: 100px;
+        }
+
+        .col {
+            /*display: flex;*/
+        }
+        p {
+            margin-bottom: 10px;
+        }
+
+        .console {
+            /*display: flex;*/
+            /*flex-direction: column-reverse;*/
+            border: black solid 3px;
+            border-radius: 10px;
+            background-color: #343a40;
+            height: 200px;
+            padding: 6px;
+            margin: 10px 10px 10px 0px;
+            overflow: auto;
+        }
+        .sendButton{
+            justify-content: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container"></div>
+<!--主內容-->
+<div class="container">
+    <!--    主內容子元素由上而下-->
+    <div class="row">
+        <h1 class="col">加載中...</h1>
+    </div>
+    <div class="console"></div>
+    <!--    <button class="testOutput">增加雨語句</button>-->
+    <div class="row">
+        <div class="col">
+            <input id="input" type="text">
+            <button class="sendButton testOutput">送出</button>
+        </div>
+    </div>
+</div>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script defer src="game.js"></script>
+</body>
+</html>
